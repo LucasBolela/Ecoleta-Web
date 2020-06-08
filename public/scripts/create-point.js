@@ -57,8 +57,11 @@ function handleSelectedItem(event){
   const itemId = itemLi.dataset.id
   
   const alreadySelected = selectedItems.findIndex(item => item == itemId)
-  if(alreadySelected!=-1){
-    const filteredItems = selectedItems.filter(item => item != itemId)
+  if(alreadySelected>=0){
+    const filteredItems = selectedItems.filter(item => {
+      const itemIsDIffetent = item != itemId
+      return itemIsDIffetent
+    })
     selectedItems = filteredItems
   } else{
     selectedItems.push(itemId)
